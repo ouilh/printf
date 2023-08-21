@@ -16,8 +16,8 @@ int _printf(const char *format, ...);
 
 typedef struct formats
 {
-    char *specf;
-    int (*function)(va_list);
+char *specf;
+int (*function)(va_list);
 } format_t;
 
 #endif
