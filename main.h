@@ -3,7 +3,7 @@
 
 #include <stdarg.h>
 #include <unistd.h>
-
+#include <stdio.h>
 /* Function prototypes */
 int _putchar(char c);
 int printchar(va_list args);
