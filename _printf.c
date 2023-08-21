@@ -9,7 +9,7 @@
  *
  * Return: a pointer to the function corresponding to the format specifier.
  *         NULL if no matching function is found.
- */
+ **/
 
 int _putchar(char c) {
    
