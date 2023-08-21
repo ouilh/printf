@@ -1,13 +1,11 @@
 #include "main.h"
 
 /**
- * theprint - selects the function to use based on the given format specifier.
+ * _printf - Produces output according to a format.
  *
- * @format: the format specifier character.
- * @args: a va_list of arguments for the selected function.
+ * @format: The format string containing format specifiers.
  *
- * Return: a pointer to the function corresponding to the format specifier.
- *         NULL if no matching function is found.
+ * Return: Number of characters printed (excluding the null byte).
  */
 int _printf(const char *format, ...)
 {
