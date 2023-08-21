@@ -21,28 +21,27 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format != NULL && format[i] != '\0'; i++)
 	{
-        	if (format[i] == '%')
-        	{
-            		for (j = 0; format[j + 1] == ' '; j++)
-            		{
-                		if (format[j + 2] == '\0')
-                    		return (-1);
-            		}
-            		i++;
-            		printfunct = theprint(&format[i]);
+		if (format[i] == '%')
+		{
+			for (j = 0; format[j + 1] == ' '; j++)
+			{
+				if (format[j + 2] == '\0')
+					return (-1);
+			}
+			i++;
+			printfunct = theprint(&format[i]);
 
-            		if (printfunct != NULL)
-                		count += printfunct(args);
-            		else
-            		{
-                		count += _putchar('%');
-                		count += _putchar(format[i]);
-            		}
-        	}
-        	else
-            		count += _putchar(format[i]);
+			if (printfunct != NULL)
+				count += printfunct(args);
+			else
+			{
+				count += _putchar('%');
+				count += _putchar(format[i]);
+			}
+		}
+		else
+			count += _putchar(format[i]);
 	}
-    	va_end(args);
-    	return (count);
+	va_end(args);
+	return (count);
 }
-
