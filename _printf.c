@@ -10,38 +10,46 @@
 int _printf(const char *format, ...)
 {
 	int count = 0;
-	int i, j;
-	int (*printfunct)(va_list);
 	va_list args;
 
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
 
-	for (i = 0; format != NULL && format[i] != '\0'; i++)
+	for (int i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			for (j = 0; format[j + 1] == ' '; j++)
-			{
-				if (format[j + 2] == '\0')
-					return (-1);
-			}
 			i++;
-			printfunct = theprint(&format[i]);
-
-			if (printfunct != NULL)
-				count += printfunct(args);
-			else
+			if (format[i] == 'c')  /* Handle %c specifier */
 			{
-				count += _putchar('%');
-				count += _putchar(format[i]);
+				int ch = va_arg(args, int);
+				putchar(ch);
+				count++;
+			}
+			else if (format[i] == 's')  /* Handle %s specifier */
+			{
+				char *str = va_arg(args, char*);
+				for (int j = 0; str[j] != '\0'; j++)
+				{
+					putchar(str[j]);
+					count++;
+				}
+			}
+			else if (format[i] == '%')  /* Handle %% specifier */
+			{
+				putchar('%');
+				count++;
 			}
 		}
 		else
-			count += _putchar(format[i]);
+		{
+			putchar(format[i]);
+			count++;
+		}
 	}
+
 	va_end(args);
 	return (count);
 }
