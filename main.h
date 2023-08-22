@@ -19,7 +19,7 @@ int _printf(const char *format, ...);
  *
  * @specf: Formatting specifier string.
  * @function: Pointer to the function that processes data using the specifier.
- * Description: This structure defines a template for creating instances 
+ * Description: This structure defines a template for creating instances.
  */
 typedef struct formats
 {
