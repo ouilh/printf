@@ -13,6 +13,7 @@ int printint(int n);
 int printinteger(va_list args);
 int (*theprint(const char *format))(va_list);
 int _printf(const char *format, ...);
+
 /**
  * struct format - Represents a formatting specifier.
  *
