@@ -13,7 +13,13 @@ int printint(int n);
 int printinteger(va_list args);
 int (*theprint(const char *format))(va_list);
 int _printf(const char *format, ...);
-
+/**
+ * struct format - Represents a formatting specifier and its corresponding function.
+ *
+ * @specf: Formatting specifier string.
+ *
+ * @function: Pointer to the function that processes data using the specifier.
+ */
 typedef struct formats
 {
 char *specf;
