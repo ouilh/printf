@@ -18,7 +18,6 @@ int _printf(const char *format, ...);
  * struct format - Represents a formatting specifier.
  *
  * @specf: Formatting specifier string.
- *
  * @function: Pointer to the function that processes data using the specifier.
  */
 typedef struct formats
