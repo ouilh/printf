@@ -42,23 +42,7 @@ int _printf(const char *format, ...)
 			if (printed == -1)
 				return (-1);
 			printed_chars += printed;
-			if (format[i] == 'r')
-		        {
-		        	 // Handle %r specifier
-		                char *str = va_arg(list, char *);
-		                if (str != NULL)
-		                {
-		                	int len = 0;
-		                	while (str[len] != '\0')
-		                        len++;
-		
-		                    	for (int j = len - 1; j >= 0; j--)
-		                    	{
-		                        buffer[buff_ind++] = str[j];
-		                        if (buff_ind == BUFF_SIZE)
-		                            print_buffer(buffer, &buff_ind);
-		                    	}
-		                }
+			
 		}
 	}
 
